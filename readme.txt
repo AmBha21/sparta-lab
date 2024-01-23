@@ -1,0 +1,1 @@
+left_videos.txt and right_videos.txt contain transcript of videos from each category. These transcripts are not yet preprocessed. There are around 400 video transcript in each. All of which are separated by the tag: -VIDEO END-
