@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "type": "module",
+    "youtubei.js": "^9.1.0"
+  },
+  "scripts": {
+    "sock_puppet": "node sock_puppet.js"
+  }
+}
