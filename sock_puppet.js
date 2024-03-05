@@ -16,6 +16,18 @@ const { Innertube } = require('youtubei.js');
         const videoInfo = await youtube.getInfo(videoId);
         // console.log(videoInfo);
 
+        // Retrieve the transcript of the video
+        try {
+            const transcriptInfo = await videoInfo.getTranscript();
+            // console.log('Raw Transcript Data:', JSON.stringify(transcriptInfo, null, 2)); // Log the raw transcript data
+            // const transcriptLines = transcriptInfo.transcript.content.body.initial_segments.map(segment => segment.text);
+            // console.log('Transcript:', transcriptLines.join('\n'));
+            const transcriptLines = transcriptInfo.transcript.content.body.initial_segments.map(segment => segment.snippet.text);
+            console.log('Transcript:', transcriptLines.join(' '));
+        } catch (error) {
+            console.log('Transcript not available for this video');
+        }
+
         // Print out the title
         console.log(`Watching Video Title: ${videoInfo.basic_info.title}`);
 
