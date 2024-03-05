@@ -1,7 +1,25 @@
 const { Innertube } = require('youtubei.js');
 
 (async () => {
-    const youtube = await Innertube.create();
+    // const youtube = await Innertube.create({
+    //     cache: new UniversalCache()
+    // });
+
+    // youtube.session.on('auth-pending', (data) => {
+    // console.log(`Go to ${data.verification_url} in your browser and enter code ${data.user_code} to authenticate.`);
+    // });
+
+    // youtube.session.on('auth', ({ credentials }) => {
+    // console.log('Sign in successful:', credentials);
+    // });
+
+    // youtube.session.on('update-credentials', ({ credentials }) => {
+    // console.log('Credentials updated:', credentials);
+    // });
+
+    // await youtube.session.signIn();
+    const youtube = await Innertube.create()
+
 
     // Random video from docs
     const firstVideoId = 'AYN8616Loc0';
@@ -31,6 +49,9 @@ const { Innertube } = require('youtubei.js');
         // Print out the title
         console.log(`Watching Video Title: ${videoInfo.basic_info.title}`);
 
+        // Like the video (which should also add it to the watch history)
+        // await youtube.videos.rate(videoId, 'like');
+
         // Retrieve the next batch of suggested videos
         watchNext = await videoInfo.getWatchNextContinuation();
 
@@ -52,4 +73,7 @@ const { Innertube } = require('youtubei.js');
             break;
         }
     }
+
+    // await youtube.session.oauth.cacheCredentials();
+
 })();
