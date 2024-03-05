@@ -74,6 +74,13 @@ const { Innertube } = require('youtubei.js');
         }
     }
 
+    // Have to be signed in to get history
+    // const history = await youtube.getHistory();
+    // console.log('Watch History:');
+    // history.videos.forEach((video, index) => {
+    //   console.log(`${index + 1}. ${video.title} (ID: ${video.id})`);
+    // });
+
     // await youtube.session.oauth.cacheCredentials();
 
 })();
